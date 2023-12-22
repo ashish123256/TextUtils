@@ -1,32 +1,39 @@
-import React ,{useState} from 'react'
+import React  from 'react'
 
-const About = () => {
+const About = (props) => {
 
-    const[myStyle,setMyStyle] = useState({
-        color: "black",
-        backgroundColor: "white"
-    })
+    // const[myStyle,setMyStyle] = useState({
+    //     color: "black",
+    //     backgroundColor: "white"
+    // })
 
-    const [btntext,setBtntext]=useState("Enable Dark Mode")
-    
-    const toggleStyle=()=>{
-        if(myStyle.color === "black"){
-            setMyStyle({
-                color:"white",
-                backgroundColor:"black",
-                border:"1px solid white"
-            })
-            setBtntext("Enable Light Mode")
- 
-        }
-        else{
-           setMyStyle({
-            color : "black",
-            backgroundColor : "white"
-           })
-           setBtntext("Enable Dark Mode")
-        }
+    let myStyle = {
+        color:props.mode === "dark" ? "white":"#042743",
+        backgroundColor: props.mode === "dark" ? "#042743" : "white",
+        border: "2px solid",
+        borderColor: props.mode === "dark"?"white": '#042743'
     }
+
+    // const [btntext,setBtntext]=useState("Enable Dark Mode")
+    
+    // const toggleStyle=()=>{
+    //     if(myStyle.color === "black"){
+    //         setMyStyle({
+    //             color:"white",
+    //             backgroundColor:"black",
+    //             border:"1px solid white"
+    //         })
+    //         setBtntext("Enable Light Mode")
+ 
+    //     }
+    //     else{
+    //        setMyStyle({
+    //         color : "black",
+    //         backgroundColor : "white"
+    //        })
+    //        setBtntext("Enable Dark Mode")
+    //     }
+    // }
     
        
     
@@ -71,9 +78,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div className="container my-3">
-                <button onClick={toggleStyle} type="button" className="btn btn-primary">{btntext}</button>
-            </div>
+        
         </div>
     )
 }
